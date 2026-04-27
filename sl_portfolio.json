@@ -1,12 +1,11 @@
 {
-  "ASML": {"shares": 0.737,  "sl": 1380.36, "risk": 57.00,  "ma": "EMA21"},
-  "MU":   {"shares": 6.5,    "sl": 470.72,  "risk": 169.00, "ma": "SMA10"},
-  "KLIC": {"shares": 12.98,  "sl": 83.86,   "risk": 50.00,  "ma": "SMA10"},
-  "POWL": {"shares": 3.87,   "sl": 241.13,  "risk": 45.00,  "ma": "SMA10"},
-  "GLW":  {"shares": 5.7,    "sl": 163.61,  "risk": 70.00,  "ma": "EMA21"},
-  "LITE": {"shares": 0.39,   "sl": 866.00,  "risk": 6.10,   "ma": "SMA10"},
-  "STX":  {"shares": 1.57,   "sl": 560.77,  "risk": 40.00,  "ma": "SMA10"},
-  "MRVL": {"shares": 6.3,    "sl": 158.28,  "risk": 38.00,  "ma": "SMA10"},
-  "MP":   {"shares": 19.0,   "sl": 58.29,   "risk": 89.00,  "ma": "EMA21"},
-  "UUUU": {"shares": 23.8,   "sl": 19.64,   "risk": 32.00,  "ma": "EMA21"}
+  "ASML": {"shares": 0.737,   "sl": 1380.36, "risk": 62.00,  "ma": "EMA21"},
+  "MU":   {"shares": 6.5065,  "sl": 470.72,  "risk": 316.00, "ma": "SMA10"},
+  "KLIC": {"shares": 12.9825, "sl": 83.86,   "risk": 24.00,  "ma": "SMA10"},
+  "POWL": {"shares": 3.8754,  "sl": 241.13,  "risk": 58.00,  "ma": "SMA10"},
+  "GLW":  {"shares": 5.7099,  "sl": 163.61,  "risk": 36.00,  "ma": "EMA21"},
+  "LITE": {"shares": 0.3918,  "sl": 866.00,  "risk": 1.00,   "ma": "SMA10"},
+  "STX":  {"shares": 1.5775,  "sl": 560.77,  "risk": 51.00,  "ma": "SMA10"},
+  "MP":   {"shares": 19.0476, "sl": 58.29,   "risk": 122.00, "ma": "EMA21"},
+  "UUUU": {"shares": 24.1429, "sl": 19.64,   "risk": 35.00,  "ma": "EMA21"}
 }
