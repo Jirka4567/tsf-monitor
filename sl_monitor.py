@@ -101,6 +101,22 @@ def run():
                    f"<p>Všechny pozice uzavřeny. {date}</p>")
         print("  ✅ Portfolio prázdné.")
 
+    # Páteční upozornění na gold hedge v 18:30-19:00 UTC (20:30-21:00 CZ)
+    now_utc = datetime.utcnow()
+    if now_utc.weekday() == 4 and 18 <= now_utc.hour < 19 and now_utc.minute >= 30:
+        html_hedge = f"""<html><body style='font-family:Arial,sans-serif;max-width:500px;margin:auto'>
+<h2>🛡️ Páteční hedge reminder</h2>
+<p style='font-size:16px'>Trh zavírá za ~1 hodinu. Čas koupit <b>weekend gold hedge</b>.</p>
+<table border='1' cellpadding='10' cellspacing='0' style='border-collapse:collapse;width:100%'>
+  <tr style='background:#1a1a2e;color:white'><th>Instrument</th><th>Kolik</th><th>Kde</th></tr>
+  <tr><td><b>XAU/USD</b> (Gold)</td><td><b>$1,200</b></td><td>XTB → Komodity</td></tr>
+</table>
+<p style='color:#666'>Prodat v pondělí po open pokud žádný šok. Drž pokud šok nastane.</p>
+<p style='color:#999;font-size:11px'>TSF SL Monitor — {date}</p>
+</body></html>"""
+        send_email("🛡️ HEDGE REMINDER — koupit XAU/USD před víkendem", html_hedge)
+        print("  🛡️ Páteční hedge reminder odeslán")
+
     # Denni status email v 19:30-20:00 UTC (21:30-22:00 CZ)
     utc_hour = datetime.utcnow().hour
     utc_min  = datetime.utcnow().minute
