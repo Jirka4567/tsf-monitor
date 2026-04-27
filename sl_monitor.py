@@ -101,6 +101,30 @@ def run():
                    f"<p>Všechny pozice uzavřeny. {date}</p>")
         print("  ✅ Portfolio prázdné.")
 
+    # Denni status email v 19:30-20:00 UTC (21:30-22:00 CZ)
+    utc_hour = datetime.utcnow().hour
+    utc_min  = datetime.utcnow().minute
+    if utc_hour == 19 and 30 <= utc_min < 60:
+        rows_html = "".join(
+            f"<tr><td><b>{t}</b></td><td>${p:.2f}</td><td>${s:.2f}</td>"
+            f"<td style='color:{'orange' if d < 3 else 'green'}'>{d:.1f}%</td></tr>"
+            for t, p, s, d in ok_rows
+        ) + "".join(
+            f"<tr style='background:#e67e22;color:white'><td><b>{t}</b></td><td>${p:.2f}</td>"
+            f"<td>${s:.2f}</td><td>{d:.1f}%</td></tr>"
+            for t, p, s, d, *_ in alerts
+        )
+        html = f"""<html><body style='font-family:Arial,sans-serif;max-width:600px;margin:auto'>
+<h2>📊 Denní status — {date}</h2>
+<p>{len(portfolio)} aktivních pozic | {len(hit)} SL hit dnes</p>
+<table border='1' cellpadding='8' cellspacing='0' style='border-collapse:collapse;width:100%'>
+<tr style='background:#1a1a2e;color:white'><th>Ticker</th><th>Cena</th><th>Stop</th><th>Vzdálenost</th></tr>
+{rows_html}</table>
+<p style='color:#999;font-size:11px'>GitHub Actions monitor — běží 24/7</p>
+</body></html>"""
+        send_email(f"📊 Portfolio status {date}", html)
+        print("  📊 Denní status email odeslán")
+
     print(f"  Hotovo — {len(portfolio)} aktivních, {len(hit)} SL hit")
 
 if __name__ == "__main__":
