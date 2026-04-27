@@ -8,9 +8,10 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 
 PORTFOLIO_FILE = os.path.join(os.path.dirname(__file__), "sl_portfolio.json")
-EMAIL     = os.environ.get("GMAIL_USER", "chybajirka917@gmail.com").strip()
-_raw_pw   = os.environ.get("GMAIL_PASS", "qwru mxtp moqw nnhh")
-EMAIL_PW  = ''.join(c for c in _raw_pw if ord(c) < 128).strip()
+_raw_email = os.environ.get("GMAIL_USER", "chybajirka917@gmail.com")
+EMAIL      = ''.join(c for c in _raw_email if ord(c) < 128).strip()
+_raw_pw    = os.environ.get("GMAIL_PASS", "qwru mxtp moqw nnhh")
+EMAIL_PW   = ''.join(c for c in _raw_pw if ord(c) < 128).strip()
 ALERT_PCT = 0.025
 
 
