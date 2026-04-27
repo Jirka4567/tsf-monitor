@@ -9,7 +9,7 @@ from datetime import datetime
 
 PORTFOLIO_FILE = os.path.join(os.path.dirname(__file__), "sl_portfolio.json")
 EMAIL     = os.environ.get("GMAIL_USER", "chybajirka917@gmail.com")
-EMAIL_PW  = os.environ.get("GMAIL_PASS", "sbfz biiq axwk zamk")
+EMAIL_PW  = os.environ.get("GMAIL_PASS", "qwru mxtp moqw nnhh")
 ALERT_PCT = 0.025
 
 
