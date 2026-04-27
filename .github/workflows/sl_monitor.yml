@@ -1,0 +1,37 @@
+name: TSF SL Monitor
+
+on:
+  schedule:
+    # Každých 30 min 13:30-20:30 UTC (15:30-22:30 CZ) Pondělí-Pátek
+    - cron: '0,30 13-20 * * 1-5'
+  workflow_dispatch:  # manuální spuštění
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalace závislostí
+        run: pip install yfinance pandas
+
+      - name: Spuštění SL monitoru
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
+        run: python sl_monitor.py
+
+      - name: Uložení aktualizovaného portfolia
+        run: |
+          git config user.name "TSF Monitor"
+          git config user.email "actions@github.com"
+          git add sl_portfolio.json
+          git diff --staged --quiet || git commit -m "SL update $(date '+%Y-%m-%d %H:%M')"
+          git push
