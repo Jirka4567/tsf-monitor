@@ -1,38 +1,14 @@
 {
-  "ASML": {
-    "shares": 0.737,
-    "sl": 1380.36,
-    "risk": 62.0,
-    "ma": "EMA21"
-  },
   "MU": {
     "shares": 6.5065,
     "sl": 470.72,
     "risk": 316.0,
     "ma": "SMA10"
   },
-  "KLIC": {
-    "shares": 12.9825,
-    "sl": 83.86,
-    "risk": 24.0,
-    "ma": "SMA10"
-  },
   "POWL": {
     "shares": 3.8754,
     "sl": 241.13,
     "risk": 58.0,
-    "ma": "SMA10"
-  },
-  "GLW": {
-    "shares": 5.7099,
-    "sl": 163.61,
-    "risk": 36.0,
-    "ma": "EMA21"
-  },
-  "LITE": {
-    "shares": 0.3918,
-    "sl": 837.62,
-    "risk": 12.0,
     "ma": "SMA10"
   },
   "MP": {
